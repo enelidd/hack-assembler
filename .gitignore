@@ -1,0 +1,7 @@
+.stack-work/
+.idea/
+out/
+hack-assembler.cabal
+hack-assembler.iml
+stack.yaml.lock
+*~
