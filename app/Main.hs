@@ -93,10 +93,10 @@ getNextAddress symbolTable = findFirst list
     where list = sort $ foldr (:) [] symbolTable
 
 findFirst :: [Int] -> Int
-findFirst (x:xs) | head xs == x     = findFirst xs
-findFirst (x:xs) | head xs - x == 1 = findFirst xs
-findFirst (x:xs) | head xs - x > 1  = x + 1
-findFirst x      = error ("findFirst:\n" ++ show x)
+findFirst (x : xs@(y:_)) | y == x     = findFirst xs
+findFirst (x : xs@(y:_)) | y - x == 1 = findFirst xs
+findFirst (x : xs@(y:_)) | y - x > 1  = x + 1
+findFirst x              = error ("findFirst:\n" ++ show x)
 
 convertACommand :: SymbolTable -> String -> String
 convertACommand symbolTable a
